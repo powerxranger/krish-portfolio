@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Apply the saved theme before first paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (['dark', 'light', 'fun'].indexOf(t) === -1) t = 'dark';
+          var el = document.documentElement;
+          el.classList.remove('dark', 'light', 'fun');
+          el.classList.add(t);
+          el.style.colorScheme = t === 'light' ? 'light' : 'dark';
+        } catch (e) {}
+      })();
+    </script>
+
+    <title>Krish Aggarwal — Software Engineer</title>
+    <meta
+      name="description"
+      content="Krish Aggarwal — final-year CS student at DTU building AI-powered products, resilient backends, and immersive interfaces."
+    />
+    <meta name="author" content="Krish Aggarwal" />
+    <meta name="theme-color" content="#05050c" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Krish Aggarwal — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Building intelligent systems, resilient backends, and immersive interfaces."
+    />
+    <meta property="og:image" content="/favicon.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Krish Aggarwal — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Building intelligent systems, resilient backends, and immersive interfaces."
+    />
+    <meta name="twitter:image" content="/favicon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
