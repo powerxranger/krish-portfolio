@@ -69,6 +69,7 @@ export const projects: Project[] = [
     ],
     tags: ['C++', 'React', 'TypeScript', 'Node.js', 'SQLite'],
     github: 'https://github.com/powerxranger/Sentinel-Track',
+    video: 'https://www.youtube.com/watch?v=NRZ1LQSAQ7M'
   },
 ]
 
