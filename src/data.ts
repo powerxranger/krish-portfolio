@@ -40,7 +40,9 @@ export interface Project {
   tags: string[]
   github: string
   demo?: string
+  demoNote?: string
   video?: string
+  notHostedReason?: string
 }
 
 export const projects: Project[] = [
@@ -56,6 +58,7 @@ export const projects: Project[] = [
     tags: ['Flux AI', 'React', 'Node.js', 'MongoDB', 'Cloudinary'],
     github: 'https://github.com/powerxranger/AI-Image-Generation',
     demo: 'https://ai-image-generation-seven-gamma.vercel.app/',
+    demoNote: 'Hosted on a free tier - may take a moment to wake up on the first load',
     video: 'https://youtu.be/6UhmIMZTjvg?si=KkbBOTM5UyRFL8MD',
   },
   {
@@ -69,7 +72,8 @@ export const projects: Project[] = [
     ],
     tags: ['C++', 'React', 'TypeScript', 'Node.js', 'SQLite'],
     github: 'https://github.com/powerxranger/Sentinel-Track',
-    video: 'https://www.youtube.com/watch?v=NRZ1LQSAQ7M'
+    video: 'https://www.youtube.com/watch?v=NRZ1LQSAQ7M',
+    notHostedReason: 'Requires a local system agent; not deployable to cloud platforms',
   },
 ]
 
