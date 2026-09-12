@@ -28,7 +28,8 @@ function getScroll() {
   return max > 0 ? Math.min(1, Math.max(0, h.scrollTop / max)) : 0
 }
 
-const CORE_POS = new THREE.Vector3(1.2, 0.25, 0)
+const CORE_POS_DESKTOP = new THREE.Vector3(1.2, 0.25, 0)
+const CORE_POS_MOBILE = new THREE.Vector3(0.2, 0.1, 0)
 
 /* Build node positions + synapse lines between near neighbours (stable across themes). */
 function buildGraph(count: number, threshold: number, maxPerNode: number) {
@@ -65,7 +66,7 @@ function buildGraph(count: number, threshold: number, maxPerNode: number) {
   return { nodePos, linePos: new Float32Array(lines) }
 }
 
-function NeuralNet({ count, palette }: { count: number; palette: ScenePalette }) {
+function NeuralNet({ count, palette, pos }: { count: number; palette: ScenePalette; pos: THREE.Vector3 }) {
   const group = useRef<THREE.Group>(null)
   const { nodePos, linePos } = useMemo(() => buildGraph(count, 1.15, 4), [count])
   const nodeCol = useMemo(() => {
@@ -89,7 +90,7 @@ function NeuralNet({ count, palette }: { count: number; palette: ScenePalette })
   const blending = palette.additive ? THREE.AdditiveBlending : THREE.NormalBlending
 
   return (
-    <group ref={group} position={CORE_POS}>
+    <group ref={group} position={pos}>
       <points key={`nodes-${palette.additive}`}>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[nodePos, 3]} />
@@ -123,7 +124,7 @@ function NeuralNet({ count, palette }: { count: number; palette: ScenePalette })
   )
 }
 
-function AICore({ palette }: { palette: ScenePalette }) {
+function AICore({ palette, pos }: { palette: ScenePalette; pos: THREE.Vector3 }) {
   const group = useRef<THREE.Group>(null)
   const cage = useRef<THREE.Mesh>(null)
   const inner = useRef<THREE.Mesh>(null)
@@ -178,7 +179,7 @@ function AICore({ palette }: { palette: ScenePalette }) {
   })
 
   return (
-    <group ref={group} position={CORE_POS}>
+    <group ref={group} position={pos}>
       <Sphere ref={inner} args={[0.5, 48, 48]}>
         <meshStandardMaterial
           color={palette.additive ? '#0a0f2c' : palette.core}
@@ -303,6 +304,7 @@ export default function Experience({
   const full = quality === 'full'
   const bloomOn = full && palette.bloom > 0
   const [dpr, setDpr] = useState<number>(full ? 1.5 : 1)
+  const corePos = full ? CORE_POS_DESKTOP : CORE_POS_MOBILE
 
   useEffect(() => {
     onReady?.()
@@ -310,7 +312,7 @@ export default function Experience({
 
   return (
     <Canvas
-      camera={{ position: [0, 0.6, 7.2], fov: 48 }}
+      camera={{ position: [0, 0.6, 6.2], fov: 52 }}
       dpr={dpr}
       gl={{ antialias: full, alpha: true, powerPreference: 'high-performance' }}
     >
@@ -330,8 +332,8 @@ export default function Experience({
       <pointLight position={[3, 3, 4]} intensity={40} color={palette.rings[0]} />
       <pointLight position={[-3, -2, 2]} intensity={30} color={palette.cage} />
 
-      <AICore palette={palette} />
-      <NeuralNet count={full ? 260 : 120} palette={palette} />
+      <AICore palette={palette} pos={corePos} />
+      <NeuralNet count={full ? 260 : 120} palette={palette} pos={corePos} />
       {full && <Starfield palette={palette} />}
       <HoloGrid palette={palette} />
 
