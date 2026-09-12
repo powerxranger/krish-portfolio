@@ -92,7 +92,7 @@ open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:z
                           <Tooltip.Provider delayDuration={200}>
                             <Tooltip.Root>
                               <Tooltip.Trigger asChild>
-                                <span className="flex cursor-default items-center gap-1.5 rounded-lg border border-amber-500/20 bg-amber-500/5 px-3 py-1.5 font-mono text-xs text-amber-600/50 transition-all duration-200 hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-amber-600 dsrk:text-amber-400/50 dark:hover:text-amber-400">
+                                <span className="flex cursor-default items-center gap-1.5 rounded-lg border border-amber-500/20 bg-amber-500/5 px-3 py-1.5 font-mono text-xs text-amber-500/60 transition-all duration-200 hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-amber-500">
                                   <MonitorOff className="size-3.5" />
                                   Not Hosted
                                 </span>
@@ -101,7 +101,7 @@ open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:z
                                 <Tooltip.Content
                                   side="bottom"
                                   sideOffset={8}
-                                  className="z-50 max-w-xs rounded-lg border border-amber-500/25 bg-card/95 px-3 py-2 font-mono text-xs text-amber-700/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md data-[state=delayed-open]:animate-in dark:text-amber-300/80 data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
+                                  className="z-50 max-w-xs rounded-lg border border-amber-500/25 bg-card/95 px-3 py-2 font-mono text-xs text-amber-500 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
                                 >
                                   {p.notHostedReason}
                                   <Tooltip.Arrow className="fill-amber-500/25" />
