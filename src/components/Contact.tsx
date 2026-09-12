@@ -3,19 +3,13 @@ import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/Reveal'
 import { Magnetic } from '@/components/Magnetic'
 import { GithubIcon, LinkedinIcon, LeetcodeIcon } from '@/components/icons'
-
-const RESUME_URL =
-  'https://drive.google.com/file/d/1WiYnrRyobiGBmqPKVpAFhqoN7FGkTtXf/view?usp=sharing'
+import { links } from '@/data'
 
 const socials = [
-  {
-    href: 'https://www.linkedin.com/in/krish-aggarwal-8854a2316/',
-    label: 'LinkedIn',
-    Icon: LinkedinIcon,
-  },
-  { href: 'https://github.com/powerxranger', label: 'GitHub', Icon: GithubIcon },
-  { href: 'mailto:aggarwalkrish28@gmail.com', label: 'Email', Icon: Mail },
-  { href: 'https://leetcode.com/u/powerxranger08/', label: 'LeetCode', Icon: LeetcodeIcon },
+  { href: links.linkedin, label: 'LinkedIn', Icon: LinkedinIcon },
+  { href: links.github, label: 'GitHub', Icon: GithubIcon },
+  { href: links.email, label: 'Email', Icon: Mail },
+  { href: links.leetcode, label: 'LeetCode', Icon: LeetcodeIcon },
 ]
 
 export function Contact() {
@@ -54,7 +48,7 @@ export function Contact() {
               size="lg"
               className="bg-[image:var(--grad)] text-white shadow-[0_0_30px_rgba(108,99,255,.35)] transition-shadow hover:shadow-[0_0_50px_rgba(108,99,255,.6)]"
             >
-              <a href="https://www.linkedin.com/in/krish-aggarwal-8854a2316/" target="_blank" rel="noopener noreferrer">
+              <a href={links.linkedin} target="_blank" rel="noopener noreferrer">
                 Say Hello <ArrowRight className="size-4" />
               </a>
             </Button>
@@ -67,7 +61,7 @@ export function Contact() {
               variant="outline"
               className="border-border bg-background/40 backdrop-blur-sm"
             >
-              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+              <a href={links.resume} target="_blank" rel="noopener noreferrer">
                 View Resume <FileText className="size-4" />
               </a>
             </Button>

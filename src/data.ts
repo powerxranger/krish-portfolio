@@ -77,6 +77,16 @@ export const projects: Project[] = [
   },
 ]
 
+// ─── Links ────────────────────────────────────────────────────────────────────
+
+export const links = {
+  resume: 'https://drive.google.com/file/d/1WiYnrRyobiGBmqPKVpAFhqoN7FGkTtXf/view?usp=sharing',
+  linkedin: 'https://www.linkedin.com/in/krish-aggarwal-8854a2316/',
+  github: 'https://github.com/powerxranger',
+  email: 'mailto:aggarwalkrish28@gmail.com',
+  leetcode: 'https://leetcode.com/u/powerxranger08/',
+}
+
 // ─── Technologies ─────────────────────────────────────────────────────────────
 
 export interface TechCategory {

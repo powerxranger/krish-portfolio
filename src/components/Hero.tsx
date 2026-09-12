@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Magnetic } from '@/components/Magnetic'
 import { ScrambleText } from '@/components/ScrambleText'
+import { links } from '@/data'
 
 function useTyping(word: string, startDelay = 700, speed = 80) {
   const [text, setText] = useState('')
@@ -108,7 +109,7 @@ export function Hero() {
               className="border-border bg-background/40 backdrop-blur-sm"
             >
               <a
-                href="https://drive.google.com/file/d/1WiYnrRyobiGBmqPKVpAFhqoN7FGkTtXf/view?usp=sharing"
+                href={links.resume}
                 target="_blank"
                 rel="noopener noreferrer"
               >
